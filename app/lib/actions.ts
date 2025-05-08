@@ -115,7 +115,7 @@ export async function authenticate(
     await signIn("credentials", formData); //选择提供商，和表单数据
   } catch (error) {
     if (error instanceof AuthError) {
-      switch (error.type) {
+      switch (error.cause) {
         case "CredentialsSignin":
           return "Invalid credentials.";
         default:
